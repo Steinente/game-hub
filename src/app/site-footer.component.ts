@@ -10,6 +10,10 @@ import { TPipe } from './shared/pipes/t.pipe'
     <footer class="site-legal" [attr.aria-label]="'legalFooterLabel' | t">
       <div class="site-legal-inner">
         <div class="site-legal-links">
+          <a routerLink="/" class="site-legal-link">
+            {{ 'homeTitle' | t }}
+          </a>
+
           <a
             routerLink="/imprint"
             routerLinkActive="site-legal-link-active"
@@ -219,21 +223,20 @@ import { TPipe } from './shared/pipes/t.pipe'
 
         .site-legal-inner {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column-reverse;
           align-items: center;
-          flex-wrap: nowrap;
-          gap: 10px;
+          gap: 10px 12px;
         }
 
         .site-legal-links,
         .site-donate {
-          width: auto;
+          width: 100%;
           grid-column: auto;
         }
 
         .site-legal-links {
-          justify-content: flex-start;
-          flex-wrap: nowrap;
+          justify-content: center;
+          flex-wrap: wrap;
           gap: 8px 12px;
         }
 
@@ -245,6 +248,8 @@ import { TPipe } from './shared/pipes/t.pipe'
         .site-donate-popover {
           left: auto;
           right: 0;
+          transform: none;
+          width: min(340px, calc(100vw - 16px));
         }
 
         .site-legal-link {
