@@ -26,6 +26,20 @@ export class CookieStorageService {
     return window.location.protocol === 'https:' ? '; Secure' : ''
   }
 
+  private domainAttribute() {
+    if (typeof window === 'undefined') {
+      return ''
+    }
+
+    const hostname = window.location.hostname.toLowerCase()
+
+    if (hostname === 'steinente.de' || hostname.endsWith('.steinente.de')) {
+      return '; Domain=.steinente.de'
+    }
+
+    return ''
+  }
+
   get(key: string): string | null {
     const encodedKey = encodeURIComponent(key)
     const encodedCookiePrefix = `${encodedKey}=`
@@ -52,7 +66,7 @@ export class CookieStorageService {
     const encodedValue = encodeURIComponent(value)
 
     this.writeCookie(
-      `${encodedKey}=${encodedValue}; Path=/; Max-Age=31536000; SameSite=Lax${this.secureAttribute()}`,
+      `${encodedKey}=${encodedValue}; Path=/; Max-Age=31536000; SameSite=Lax${this.domainAttribute()}${this.secureAttribute()}`,
     )
   }
 
@@ -60,7 +74,7 @@ export class CookieStorageService {
     const encodedKey = encodeURIComponent(key)
 
     this.writeCookie(
-      `${encodedKey}=; Path=/; Max-Age=0; SameSite=Lax${this.secureAttribute()}`,
+      `${encodedKey}=; Path=/; Max-Age=0; SameSite=Lax${this.domainAttribute()}${this.secureAttribute()}`,
     )
   }
 }
