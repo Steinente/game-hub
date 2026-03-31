@@ -24,50 +24,60 @@
     <section class="games-section">
       <h2 class="games-title">{{ 'homeGamesTitle' | t }}</h2>
 
-      <p class="muted" *ngIf="loadingGames()">{{ 'homeGamesLoading' | t }}</p>
+      @if (loadingGames()) {
+        <p class="muted">{{ 'homeGamesLoading' | t }}</p>
+      }
 
-      <div class="error-box" *ngIf="gamesLoadError()">
-        {{ 'homeGamesLoadError' | t }}
-      </div>
+      @if (gamesLoadError()) {
+        <div class="error-box">
+          {{ 'homeGamesLoadError' | t }}
+        </div>
+      }
 
-      <div class="games-grid" *ngIf="games().length > 0">
-        <a
-          class="game-card"
-          *ngFor="let game of games()"
-          [href]="game.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          [attr.aria-label]="game.name"
-        >
-          <div class="game-card-header">
-            <img
-              class="game-icon"
-              [src]="game.iconUrl"
-              [alt]="game.name"
-              loading="lazy"
-              (error)="handleIconError(game.id)"
-            />
+      @if (games().length > 0) {
+        <div class="games-grid">
+          @for (game of games(); track game.id) {
+            <a
+              class="game-card"
+              [href]="game.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.aria-label]="game.name"
+            >
+              <div class="game-card-header">
+                <img
+                  class="game-icon"
+                  [src]="game.iconUrl"
+                  [alt]="game.name"
+                  loading="lazy"
+                  (error)="handleIconError(game.id)"
+                />
 
-            <div>
-              <h3 class="game-name">{{ game.name }}</h3>
-              <p class="game-url">{{ game.url }}</p>
-            </div>
-          </div>
+                <div>
+                  <h3 class="game-name">{{ game.name }}</h3>
+                  <p class="game-url">{{ game.url }}</p>
+                </div>
+              </div>
 
-          <p class="game-description">{{ game.description }}</p>
+              <p class="game-description">{{ game.description }}</p>
 
-          <div class="game-status-row">
-            <span class="status-pill" [class.status-offline]="!game.isOnline">
-              <span class="status-dot"></span>
-              {{
-                game.isOnline
-                  ? ('homeStatusOnline' | t)
-                  : ('homeStatusOffline' | t)
-              }}
-            </span>
-          </div>
-        </a>
-      </div>
+              <div class="game-status-row">
+                <span
+                  class="status-pill"
+                  [class.status-offline]="!game.isOnline"
+                >
+                  <span class="status-dot"></span>
+                  {{
+                    game.isOnline
+                      ? ('homeStatusOnline' | t)
+                      : ('homeStatusOffline' | t)
+                  }}
+                </span>
+              </div>
+            </a>
+          }
+        </div>
+      }
     </section>
   </div>
 </div>

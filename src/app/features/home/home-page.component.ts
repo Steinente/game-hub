@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common'
 import { HttpClient } from '@angular/common/http'
 import {
   Component,
@@ -28,7 +27,7 @@ type GameCard = {
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, TPipe],
+  imports: [FormsModule, TPipe],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
 })
