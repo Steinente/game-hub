@@ -3,9 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: game-hub:latest
-    environment:
-      PORT: '4000'
     ports:
       - '4000:4000'
     restart: unless-stopped
