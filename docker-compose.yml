@@ -1,14 +1,11 @@
 services:
   game-hub:
-    image: node:22-bookworm-slim
-    working_dir: /app
-    command: sh -c "npm ci; npm run build; npm run serve:ssr:game-hub"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: game-hub:latest
+    environment:
+      PORT: '4000'
     ports:
       - '4000:4000'
-    volumes:
-      - ./:/app
-      - game_hub_node_modules:/app/node_modules
     restart: unless-stopped
-
-volumes:
-  game_hub_node_modules:
