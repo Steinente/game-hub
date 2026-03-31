@@ -1,0 +1,148 @@
+.title {
+  font-size: 3rem;
+  margin: 20px 0;
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #d4a017 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.home-preferences-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.home-language-box {
+  min-width: 180px;
+}
+
+.games-section {
+  display: grid;
+  gap: 12px;
+}
+
+.games-title {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.game-card {
+  display: grid;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgb(22 32 51 / 0.8), rgb(15 23 42 / 0.9));
+  padding: 14px;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.game-card:hover,
+.game-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: #4d6489;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.28);
+}
+
+.game-card-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.game-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  background: #0f172a;
+}
+
+.game-name {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.game-url {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.game-description {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.game-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #1e5f2a;
+  color: #d5ffd8;
+  background: rgb(46 125 50 / 0.22);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-offline {
+  border-color: #7f1d1d;
+  color: #ffd2d2;
+  background: rgb(185 28 28 / 0.25);
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #5dd57a;
+}
+
+.status-offline .status-dot {
+  background: #ff7e7e;
+}
+
+@media (max-width: 900px) {
+  .home-top-spread {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-language-box {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .home-preferences-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+}

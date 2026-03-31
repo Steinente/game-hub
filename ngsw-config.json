@@ -1,0 +1,59 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "navigationUrls": ["/**", "!/**/*.*", "!/api/**"],
+  "assetGroups": [
+    {
+      "name": "app-shell",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/index.html",
+          "/*.css",
+          "/*.js",
+          "/*.mjs",
+          "/*.webmanifest",
+          "/favicon.ico",
+          "/*.png",
+          "/*.svg",
+          "/icons/**",
+          "/**/*.(woff|woff2|ttf|otf)"
+        ]
+      }
+    },
+    {
+      "name": "static-assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": ["/**/*.(png|jpg|jpeg|webp|gif|svg|ico|woff|woff2|ttf|otf)"]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "games-api",
+      "urls": ["/api/games"],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 10,
+        "maxAge": "6h",
+        "timeout": "5s"
+      }
+    },
+    {
+      "name": "external-game-assets",
+      "urls": [
+        "https://wizard.steinente.de/**",
+        "https://poker.steinente.de/**"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 20,
+        "maxAge": "1d",
+        "timeout": "10s"
+      }
+    }
+  ]
+}

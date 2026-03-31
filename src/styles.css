@@ -1,1 +1,211 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --panel: #162033;
+  --panel-2: #1e293b;
+  --border: #314158;
+  --text: #e5eefc;
+  --muted: #9fb0c9;
+  --accent: #d4a72c;
+  --danger: #d9534f;
+  --success: #4caf50;
+  --app-font-family:
+    'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, 'Liberation Sans',
+    sans-serif;
+  font-family: var(--app-font-family);
+}
+
+:root[data-app-font='simple'] {
+  --app-font-family:
+    'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, 'Liberation Sans',
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at top, #1e293b 0%, #0f172a 55%);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  font-family: inherit;
+}
+
+app-root {
+  display: block;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1 0 auto;
+}
+
+.page-shell {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.panel {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: #22304a;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #111827;
+  border-color: #e4bc48;
+  font-weight: 700;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--border);
+  color: var(--text);
+  font-weight: normal;
+}
+
+.btn-danger {
+  background: var(--danger);
+  border-color: #ef6f6b;
+}
+
+.btn-active {
+  background: var(--accent);
+  color: #111827;
+  border-color: #e4bc48;
+}
+
+.input,
+.select {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: #0f172a;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.spread {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.error-box {
+  border: 1px solid #7f1d1d;
+  background: rgb(127 29 29 / 0.2);
+  color: #fecaca;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: help;
+}
+
+@media (max-width: 900px) {
+  .page-shell {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-shell {
+    padding: 8px;
+  }
+
+  .panel {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .grid {
+    gap: 12px;
+  }
+
+  .row {
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .row > .btn,
+  .row > a.btn {
+    flex: 1 1 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .spread {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}

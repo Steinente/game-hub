@@ -1,59 +1,63 @@
-# GameHub
+# Game Hub
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.22.
+Angular-SSR-Projekt für einen Spiel-Hub mit PWA-Unterstützung.
 
-## Development server
+## Voraussetzungen
 
-To start a local development server, run:
+- Docker Desktop (inkl. Docker Compose)
 
-```bash
-ng serve
-```
+## Start mit Docker Compose
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Im Projektordner starten:
 
 ```bash
-ng generate component component-name
+docker compose up --build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. App im Browser öffnen:
+
+```text
+http://localhost:4000
+```
+
+Die Compose-Konfiguration führt im Container automatisch aus:
+
+- `npm ci`
+- `npm run build`
+- `npm run serve:ssr:game-hub`
+
+## Wichtige Docker-Befehle
+
+Container stoppen:
 
 ```bash
-ng generate --help
+docker compose down
 ```
 
-## Building
-
-To build the project run:
+Logs anzeigen:
 
 ```bash
-ng build
+docker compose logs -f
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Komplett neu aufsetzen (inkl. Node-Module-Volume):
 
 ```bash
-ng test
+docker compose down -v
+docker compose up --build
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+## Lokale Entwicklung ohne Docker
 
 ```bash
-ng e2e
+npm install
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Dann unter `http://localhost:4200` testen.
 
-## Additional Resources
+## Tests
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm test
+```
