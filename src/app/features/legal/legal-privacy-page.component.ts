@@ -1,6 +1,10 @@
-import { Component } from '@angular/core'
+import { Component, computed, inject } from '@angular/core'
+import { toSignal } from '@angular/core/rxjs-interop'
+import { ActivatedRoute } from '@angular/router'
+import { I18nService } from '../../core/i18n/i18n.service'
 import { TPipe } from '../../shared/pipes/t.pipe'
 import { LegalPageLayoutComponent } from './legal-page-layout.component'
+import { getLegalEmailAddress } from './legal-contact.utils'
 
 @Component({
   standalone: true,
@@ -50,7 +54,7 @@ import { LegalPageLayoutComponent } from './legal-page-layout.component'
           <h3 class="legal-page-section-title">
             {{ 'legalPrivacyControllerTitle' | t }}
           </h3>
-          <p>{{ 'legalPrivacyControllerBody' | t }}</p>
+          <p>{{ controllerBody() }}</p>
         </section>
 
         <section class="panel legal-page-section">
@@ -208,4 +212,16 @@ import { LegalPageLayoutComponent } from './legal-page-layout.component'
     `,
   ],
 })
-export class LegalPrivacyPageComponent {}
+export class LegalPrivacyPageComponent {
+  private readonly route = inject(ActivatedRoute)
+  private readonly i18n = inject(I18nService)
+  private readonly queryParamMap = toSignal(this.route.queryParamMap, {
+    initialValue: this.route.snapshot.queryParamMap,
+  })
+
+  protected readonly controllerBody = computed(() =>
+    this.i18n.format('legalPrivacyControllerBody', {
+      email: getLegalEmailAddress(this.queryParamMap().get('game')),
+    }),
+  )
+}

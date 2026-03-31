@@ -29,7 +29,7 @@ export const en = {
   legalImprintAddressLabel: 'Address',
   legalImprintAddressValue: 'Kaiser-Otto-Ring 6, 39106 Magdeburg',
   legalImprintContactLabel: 'Contact',
-  legalImprintContactValue: 'Phone: 015679799165\nE-mail: gamehub@steinente.de',
+  legalImprintContactValue: 'Phone: 015679799165\nE-mail: {email}',
   legalPrivacyChapter1: '1. An overview of data protection',
   legalPrivacyOverviewTitle: 'General information',
   legalPrivacyOverviewBody:
@@ -48,7 +48,7 @@ export const en = {
   legalPrivacyControllerTitle:
     'Information about the responsible party (controller)',
   legalPrivacyControllerBody:
-    'The data processing controller on this website is:\n\nDawid Czech\nKaiser-Otto-Ring 6\n39106 Magdeburg\nPhone: 015679799165\nE-mail: gamehub@steinente.de\n\nThe controller is the natural person or legal entity that single-handedly or jointly with others makes decisions as to the purposes of and resources for the processing of personal data (e.g. names, e-mail addresses, etc.).',
+    'The data processing controller on this website is:\n\nDawid Czech\nKaiser-Otto-Ring 6\n39106 Magdeburg\nPhone: 015679799165\nE-mail: {email}\n\nThe controller is the natural person or legal entity that single-handedly or jointly with others makes decisions as to the purposes of and resources for the processing of personal data (e.g. names, e-mail addresses, etc.).',
   legalPrivacyStorageDurTitle: 'Storage duration',
   legalPrivacyStorageDurBody:
     'Unless a more specific storage period has been specified in this privacy policy, your personal data will remain with us until the purpose for which it was collected no longer applies. If you assert a justified request for deletion or revoke your consent to data processing, your data will be deleted, unless we have other legally permissible reasons for storing your personal data (e.g. tax or commercial law retention periods); in the latter case, the deletion will take place after these reasons cease to apply.',

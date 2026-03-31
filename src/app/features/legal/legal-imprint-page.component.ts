@@ -1,6 +1,10 @@
-import { Component } from '@angular/core'
+import { Component, computed, inject } from '@angular/core'
+import { toSignal } from '@angular/core/rxjs-interop'
+import { ActivatedRoute } from '@angular/router'
+import { I18nService } from '../../core/i18n/i18n.service'
 import { LegalPageLayoutComponent } from './legal-page-layout.component'
 import { TPipe } from '../../shared/pipes/t.pipe'
+import { getLegalEmailAddress } from './legal-contact.utils'
 
 @Component({
   standalone: true,
@@ -26,7 +30,7 @@ import { TPipe } from '../../shared/pipes/t.pipe'
           <h2 class="legal-page-section-title">
             {{ 'legalImprintContactLabel' | t }}
           </h2>
-          <p>{{ 'legalImprintContactValue' | t }}</p>
+          <p>{{ contactValue() }}</p>
         </section>
       </div>
     </app-legal-page-layout>
@@ -66,4 +70,16 @@ import { TPipe } from '../../shared/pipes/t.pipe'
     `,
   ],
 })
-export class LegalImprintPageComponent {}
+export class LegalImprintPageComponent {
+  private readonly route = inject(ActivatedRoute)
+  private readonly i18n = inject(I18nService)
+  private readonly queryParamMap = toSignal(this.route.queryParamMap, {
+    initialValue: this.route.snapshot.queryParamMap,
+  })
+
+  protected readonly contactValue = computed(() =>
+    this.i18n.format('legalImprintContactValue', {
+      email: getLegalEmailAddress(this.queryParamMap().get('game')),
+    }),
+  )
+}

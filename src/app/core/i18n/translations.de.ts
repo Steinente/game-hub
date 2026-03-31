@@ -29,8 +29,7 @@ export const de = {
   legalImprintAddressLabel: 'Anschrift',
   legalImprintAddressValue: 'Kaiser-Otto-Ring 6, 39106 Magdeburg',
   legalImprintContactLabel: 'Kontakt',
-  legalImprintContactValue:
-    'Telefon: 015679799165\nE-Mail: gamehub@steinente.de',
+  legalImprintContactValue: 'Telefon: 015679799165\nE-Mail: {email}',
   legalPrivacyChapter1: '1. Datenschutz auf einen Blick',
   legalPrivacyOverviewTitle: 'Allgemeine Hinweise',
   legalPrivacyOverviewBody:
@@ -48,7 +47,7 @@ export const de = {
     'Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.\n\nWenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.\n\nWir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.',
   legalPrivacyControllerTitle: 'Hinweis zur verantwortlichen Stelle',
   legalPrivacyControllerBody:
-    'Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:\n\nDawid Czech\nKaiser-Otto-Ring 6\n39106 Magdeburg\nTelefon: 015679799165\nE-Mail: gamehub@steinente.de\n\nVerantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.',
+    'Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:\n\nDawid Czech\nKaiser-Otto-Ring 6\n39106 Magdeburg\nTelefon: 015679799165\nE-Mail: {email}\n\nVerantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.',
   legalPrivacyStorageDurTitle: 'Speicherdauer',
   legalPrivacyStorageDurBody:
     'Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.',

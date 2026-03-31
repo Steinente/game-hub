@@ -16,6 +16,7 @@ import { TPipe } from './shared/pipes/t.pipe'
 
           <a
             routerLink="/imprint"
+            queryParamsHandling="preserve"
             routerLinkActive="site-legal-link-active"
             [routerLinkActiveOptions]="{ exact: true }"
             class="site-legal-link"
@@ -25,6 +26,7 @@ import { TPipe } from './shared/pipes/t.pipe'
 
           <a
             routerLink="/privacy"
+            queryParamsHandling="preserve"
             routerLinkActive="site-legal-link-active"
             [routerLinkActiveOptions]="{ exact: true }"
             class="site-legal-link"
