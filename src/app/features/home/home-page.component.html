@@ -39,9 +39,23 @@
           @for (game of games(); track game.id) {
             <a
               class="game-card"
+              [class.game-card-private]="game.isPrivate"
               [href]="game.url"
               [attr.aria-label]="game.name"
             >
+              @if (game.isPrivate) {
+                <svg
+                  class="lock-watermark"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M17 11V7A5 5 0 0 0 7 7v4H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1h-2zm-5 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm3-7H9V7a3 3 0 0 1 6 0v4z"
+                  />
+                </svg>
+              }
               <div class="game-card-header">
                 <img
                   class="game-icon"

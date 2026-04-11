@@ -12,6 +12,7 @@ const browserDistFolder = join(import.meta.dirname, '../browser')
 type GameSource = {
   id: string
   url: string
+  isPrivate?: boolean
 }
 
 type GameCardPayload = {
@@ -22,12 +23,14 @@ type GameCardPayload = {
   iconUrl: string
   isOnline: boolean
   checkedAt: string
+  isPrivate?: boolean
 }
 
 const GAME_SOURCES: GameSource[] = [
   {
     id: 'wizard',
     url: 'https://wizard.steinente.de/',
+    isPrivate: true,
   },
 ]
 
@@ -133,6 +136,7 @@ async function loadGameCardData(source: GameSource): Promise<GameCardPayload> {
         iconUrl: resolveIconUrl(null, source.url),
         isOnline,
         checkedAt,
+        isPrivate: source.isPrivate,
       }
     }
 
@@ -154,6 +158,7 @@ async function loadGameCardData(source: GameSource): Promise<GameCardPayload> {
       iconUrl: resolveIconUrl(iconHref, source.url),
       isOnline,
       checkedAt,
+      isPrivate: source.isPrivate,
     }
   } catch {
     return {
@@ -164,6 +169,7 @@ async function loadGameCardData(source: GameSource): Promise<GameCardPayload> {
       iconUrl: resolveIconUrl(null, source.url),
       isOnline: false,
       checkedAt,
+      isPrivate: source.isPrivate,
     }
   }
 }

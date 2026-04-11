@@ -23,6 +23,7 @@ type GameCard = {
   iconUrl: string
   isOnline: boolean
   checkedAt: string
+  isPrivate?: boolean
 }
 
 @Component({
