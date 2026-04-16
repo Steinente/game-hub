@@ -32,6 +32,10 @@ const GAME_SOURCES: GameSource[] = [
     url: 'https://wizard.steinente.de/',
     isPrivate: true,
   },
+  {
+    id: 'poker',
+    url: 'https://poker.steinente.de/',
+  },
 ]
 
 const REQUEST_TIMEOUT_MS = 8_000
