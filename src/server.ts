@@ -48,6 +48,10 @@ const FALLBACK_ICON = '/icons/icon-192x192.png'
 const app = express()
 const angularApp = new AngularNodeAppEngine()
 
+app.get('/health', (_req, res) => {
+  res.status(200).json({ status: 'ok' })
+})
+
 async function fetchWithTimeout(resource: string, timeoutMs: number) {
   const controller = new AbortController()
   const timeoutHandle = setTimeout(() => controller.abort(), timeoutMs)

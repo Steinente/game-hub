@@ -6,12 +6,18 @@ Angular-SSR-Projekt für einen Spiel-Hub mit PWA-Unterstützung.
 
 - Docker Desktop (inkl. Docker Compose)
 
+## Docker Hub und Portainer
+
+Das öffentliche Produktionsimage wird als `steinente/game-hub:latest`
+veröffentlicht. Die vollständige Einrichtung von Docker Hub, GitHub Actions
+und Portainer ist in [DEPLOYMENT.md](DEPLOYMENT.md) beschrieben.
+
 ## Start mit Docker Compose
 
 1. Im Projektordner starten:
 
 ```bash
-docker compose up --build
+docker compose up -d
 ```
 
 2. App im Browser öffnen:
@@ -20,11 +26,10 @@ docker compose up --build
 http://localhost:4000
 ```
 
-Die Compose-Konfiguration führt im Container automatisch aus:
-
-- `npm ci`
-- `npm run build`
-- `npm run serve:ssr:game-hub`
+Die Compose-Konfiguration lädt standardmäßig das fertige Image
+`steinente/game-hub:latest` aus Docker Hub. Mit `GAME_HUB_TAG` kann ein
+anderer Image-Tag und mit `GAME_HUB_PORT` ein anderer Host-Port gewählt
+werden.
 
 ## Wichtige Docker-Befehle
 
@@ -40,11 +45,11 @@ Logs anzeigen:
 docker compose logs -f
 ```
 
-Komplett neu aufsetzen (inkl. Node-Module-Volume):
+Aktuelles Image laden und Container neu erstellen:
 
 ```bash
-docker compose down -v
-docker compose up --build
+docker compose pull
+docker compose up -d
 ```
 
 ## Lokale Entwicklung ohne Docker
