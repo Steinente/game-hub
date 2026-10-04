@@ -36,6 +36,10 @@ const GAME_SOURCES: GameSource[] = [
     id: 'poker',
     url: 'https://poker.steinente.de/',
   },
+  {
+    id: 'imposter',
+    url: 'https://imposter.steinente.de/',
+  },
 ]
 
 const REQUEST_TIMEOUT_MS = 8_000
